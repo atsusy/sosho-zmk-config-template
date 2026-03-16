@@ -1,0 +1,17 @@
+#include "sosho_R.dtsi"
+
+&spi1 { status = "okay"; };
+&trackball { status = "okay"; };
+&trackball_listener {
+	status = "okay";
+	input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+};
+
+&glidepoint_split { status = "okay"; };
+&glidepoint_split_listener {
+    status = "okay";
+/* input-processors = <&zip_xy_scaler 2 1>; */
+};
+
+&trackball_split { status = "okay"; };
+&trackball_split_listener { status = "okay"; };

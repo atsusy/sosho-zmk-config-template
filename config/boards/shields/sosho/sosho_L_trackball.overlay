@@ -1,0 +1,8 @@
+#include "sosho_L.dtsi"
+
+&spi1 { status = "okay"; };
+&trackball{ status = "okay"; };
+&trackball_split{
+    status = "okay";
+    device = <&trackball>;
+};

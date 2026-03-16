@@ -1,20 +1,38 @@
-# This file generates the GitHub Actions matrix.
-# For simple board + shield combinations, add them to the top level board and
-# shield arrays, for more control, add individual board + shield combinations
-# to the `include` property. You can also use the `cmake-args` property to
-# pass flags to the build command, `snippet` to add a Zephyr snippet, and
-# `artifact-name` to assign a name to distinguish build outputs from each other:
-#
-# board: [ "nice_nano" ]
-# shield: [ "corne_left", "corne_right" ]
-# include:
-#   - board: bdn9_rev2
-#   - board: nice_nano
-#     shield: reviung41
-#   - board: nice_nano
-#     shield: corne_left
-#     snippet: studio-rpc-usb-uart
-#     cmake-args: -DCONFIG_ZMK_STUDIO=y
-#     artifact-name: corne_left_with_studio
-#
 ---
+include:
+  # ==============================
+  # R側 (Central)
+  # ==============================
+  # トラックパッド版
+  - board: xiao_ble/nrf52840/zmk
+    shield: sosho_R_trackpad rgbled_adapter
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: sosho_R_trackpad
+
+  # トラックボール版
+  - board: xiao_ble/nrf52840/zmk
+    shield: sosho_R_trackball rgbled_adapter
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: sosho_R_trackball
+
+  # ==============================
+  # L側 (Peripheral)
+  # ==============================
+  # トラックパッド版
+  - board: xiao_ble/nrf52840/zmk
+    shield: sosho_L_trackpad rgbled_adapter
+    artifact-name: sosho_L_trackpad
+
+  # トラックボール版
+  - board: xiao_ble/nrf52840/zmk
+    shield: sosho_L_trackball rgbled_adapter
+    artifact-name: sosho_L_trackball
+
+  # ==============================
+  # 設定リセット用
+  # ==============================
+  - board: xiao_ble/nrf52840/zmk
+    shield: settings_reset
+    artifact-name: settings_reset
