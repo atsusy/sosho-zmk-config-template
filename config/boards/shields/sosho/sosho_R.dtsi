@@ -1,0 +1,22 @@
+#include "sosho.dtsi"
+#include <dt-bindings/zmk/input_transform.h>
+#include <input/processors.dtsi>
+
+&default_transform {
+    col-offset = <6>;
+};
+
+&kscan0 {
+    col-gpios
+        = <&gpio0 28 GPIO_ACTIVE_HIGH>
+        , <&gpio1 1  GPIO_ACTIVE_HIGH> 
+        , <&gpio0 29 GPIO_ACTIVE_HIGH> 
+        , <&gpio0 9  GPIO_ACTIVE_HIGH> 
+        , <&gpio0 4  GPIO_ACTIVE_HIGH>
+        , <&gpio0 10 GPIO_ACTIVE_HIGH>
+        ;
+};
+
+&right_encoder{
+    status =  "okay";
+};
