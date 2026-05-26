@@ -77,7 +77,7 @@ keymap {
     &kp TAB    &kp Q   &kp W  &kp E  &kp R  &kp T       &kp Y  &kp U  &kp I      &kp O    &kp P     &kp BSPC
     &kp LCTRL  &kp A   &kp S  &kp D  &kp F  &kp G       &kp H  &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
     &kp LSHFT  &kp Z   &kp X  &kp C  &kp V  &kp B       &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH &kp RSHFT
-    &trans     &trans         &lt 1 LANG2   &mt LGUI SPACE   &mt RALT RET  &lt 2 LANG1         &trans    &mo 3
+    &trans     &trans         &lt 1 LANG2   &mt LGUI SPACE   &mt RALT RET  &lt 2 LANG1         &kp PSCRN &mo 3
             >;
             // トラックボール/パッドによるスクロールバインディング
             sensor-bindings = <&msc_ec_l SCRL_LEFT SCRL_RIGHT &msc_ec_r SCRL_UP SCRL_DOWN>;
