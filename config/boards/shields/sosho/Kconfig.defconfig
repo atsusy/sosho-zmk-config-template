@@ -35,3 +35,13 @@ config SPI
     default y
 
 endif
+
+if SHIELD_SOSHO_L_NOPOINTING
+
+config ZMK_KEYBOARD_NAME
+    default "sosho"
+
+config ZMK_SPLIT
+    default y
+
+endif
