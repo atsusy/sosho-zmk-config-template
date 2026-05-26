@@ -17,6 +17,7 @@
         ;
 };
 
+/* エンコーダー無効化テスト（フリーズ原因の切り分け） */
 &right_encoder{
-    status =  "okay";
+    status = "disabled";
 };
