@@ -9,3 +9,6 @@ config SHIELD_SOSHO_L_TRACKPAD
 
 config SHIELD_SOSHO_L_TRACKBALL
     def_bool $(shields_list_contains,sosho_L_trackball)
+
+config SHIELD_SOSHO_L_NOPOINTING
+    def_bool $(shields_list_contains,sosho_L_nopointing)

@@ -30,6 +30,11 @@ include:
     shield: sosho_L_trackball rgbled_adapter
     artifact-name: sosho_L_trackball
 
+  # ポインティングデバイスなし版
+  - board: xiao_ble/nrf52840/zmk
+    shield: sosho_L_nopointing rgbled_adapter
+    artifact-name: sosho_L_nopointing
+
   # ==============================
   # 設定リセット用
   # ==============================
