@@ -1,5 +1,5 @@
 name: zmk-keyboard-sosho
 build:
-  cmake: .
+  #cmake: .
   settings:
     board_root: .

@@ -2,7 +2,8 @@
 #include <zephyr/init.h>
 
 static int force_boot_delay(void) {
-    k_busy_wait(1000 * 2000);
+    k_busy_wait(1000 * 1000);
+	//k_busy_wait(1000 * 2000);
     return 0;
 }
 
