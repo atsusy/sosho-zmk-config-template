@@ -31,14 +31,6 @@ include:
     artifact-name: sosho_L_trackball
 
   # ==============================
-  # デバッグ用（USB ロギング、ZMK Studio 無効）
-  # ==============================
-  - board: xiao_ble/nrf52840/zmk
-    shield: sosho_R_trackball rgbled_adapter
-    cmake-args: -DCONFIG_ZMK_STUDIO=n -DCONFIG_ZMK_USB_LOGGING=y
-    artifact-name: sosho_R_trackball_debug
-
-  # ==============================
   # 設定リセット用
   # ==============================
   - board: xiao_ble/nrf52840/zmk

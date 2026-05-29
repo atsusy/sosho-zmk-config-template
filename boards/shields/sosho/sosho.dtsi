@@ -192,6 +192,7 @@
         compatible = "pixart,pmw3610-alt";
         reg = <0>;
         spi-max-frequency = <2000000>;
+        irq-gpios = <&gpio1 7 (GPIO_ACTIVE_HIGH)>;      // Sample-LOW PRODUCT-HIGH
         cpi = <600>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_Y>;
