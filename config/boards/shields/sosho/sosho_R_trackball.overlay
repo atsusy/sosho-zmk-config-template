@@ -5,4 +5,9 @@
 &trackball_listener {
 	status = "okay";
 	input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+
+	scroll-mode {
+		layers = <1>;
+		input-processors = <&zip_xy_to_scroll_mapper>;
+	};
 };
