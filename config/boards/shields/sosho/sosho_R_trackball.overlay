@@ -4,5 +4,15 @@
 &trackball { status = "okay"; };
 &trackball_listener {
 	status = "okay";
+	layers = <0 2 3>;
 	input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+};
+
+/ {
+    trackball_scroll_listener: trackball_scroll_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+        layers = <1>;
+        input-processors = <&zip_xy_to_scroll_mapper>;
+    };
 };
