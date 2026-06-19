@@ -80,7 +80,7 @@ keymap {
     &trans     &trans         &lt 1 LANG2   &mt LGUI SPACE   &mt RALT RET  &lt 2 LANG1         &kp PSCRN &mo 3
             >;
             // トラックボール/パッドによるスクロールバインディング
-            sensor-bindings = <&msc_ec_l SCRL_LEFT SCRL_RIGHT &msc_ec_r SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         // -----------------------------------------------------------------------------------------
@@ -93,7 +93,7 @@ keymap {
     &kp LSHFT  &kp F7  &kp F8  &kp F9  &kp F10 &kp F11     &kp F12  &kp LEFT  &kp DOWN &kp RIGHT &trans  &trans
     &trans     &trans                   &trans  &trans      &trans   &trans                        &trans  &trans
             >;
-            sensor-bindings = <&msc_ec_l SCRL_LEFT SCRL_RIGHT &inc_dec_kp LC(MINUS) LC(EQUAL)>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp LC(MINUS) LC(EQUAL)>;
         };
 
         // -----------------------------------------------------------------------------------------
