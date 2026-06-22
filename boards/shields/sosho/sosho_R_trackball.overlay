@@ -17,12 +17,12 @@
 	};
 };
 
-/* 未使用の左側ポインティング受信を無効化して負荷を削減（elekit指示） */
-&glidepoint_split { status = "disabled"; };
+/* 負荷削減の検証のため左側ポインティング受信を有効化に戻した（フリーズ再発しないか確認用） */
+&glidepoint_split { status = "okay"; };
 &glidepoint_split_listener {
-    status = "disabled";
+    status = "okay";
 /* input-processors = <&zip_xy_scaler 2 1>; */
 };
 
-&trackball_split { status = "disabled"; };
-&trackball_split_listener { status = "disabled"; };
+&trackball_split { status = "okay"; };
+&trackball_split_listener { status = "okay"; };
