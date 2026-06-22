@@ -10,7 +10,8 @@
 		layers = <1>;
 		input-processors = <
 			&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
-			&zip_xy_scaler 1 6
+			&zip_x_scaler 0 1          /* 横成分を捨てて縦専用化（macOSの軸ロックで縦が動かない問題の回避） */
+			&zip_y_scaler 1 6          /* 縦スクロール速度。track-remainders付きなので小さい動きも累積される */
 			&zip_xy_to_scroll_mapper
 		>;
 	};
