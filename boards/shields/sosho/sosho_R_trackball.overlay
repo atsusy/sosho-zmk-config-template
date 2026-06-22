@@ -10,10 +10,8 @@
 		layers = <1>;
 		input-processors = <
 			&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
-			&zip_x_scaler 0 1          /* 横成分を捨てて縦専用化（macOSの軸ロック回避＋Chromium連鎖対策） */
-			/* 高解像度スクロール(SMOOTH_SCROLLING)有効時は1ティック=行の1/120なので、
-			   従来の1/6分周だと遅すぎる。まず素通し(分周なし)で開始し、速すぎる場合だけ
-			   ここに &zip_y_scaler 1 2 等を足して微調整する。 */
+			&zip_x_scaler 0 1          /* 横成分を捨てて縦専用化 */
+			&zip_y_scaler 1 16         /* hi-res倍率(約200倍)を相殺するため強めに分周。速すぎ/遅すぎはここで調整 */
 			&zip_xy_to_scroll_mapper
 		>;
 	};
