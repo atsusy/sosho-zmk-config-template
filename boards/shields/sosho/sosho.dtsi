@@ -186,12 +186,11 @@
 
     trackball: trackball@0 {
         status = "disabled";
-        compatible = "pixart,pmw3610";
+        compatible = "pixart,pmw3610-alt";
         reg = <0>;
-        spi-max-frequency = <20000000>;
-        motion-gpios = <&gpio1 7 (GPIO_ACTIVE_HIGH)>;      // Sample-LOW PRODUCT-HIGH
-        res-cpi = <400>;
-        zephyr,axis-x = <INPUT_REL_X>;
-        zephyr,axis-y = <INPUT_REL_Y>;
+        spi-max-frequency = <2000000>;
+        irq-gpios = <&gpio1 7 (GPIO_ACTIVE_HIGH)>;      // Sample-LOW PRODUCT-HIGH（極性は現状維持）
+        cpi = <400>;
+        // 軸の反転は trackball_listener 側の zip_xy_transform で従来どおり処理
     };
 };
