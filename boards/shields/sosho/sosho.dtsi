@@ -189,8 +189,9 @@
         compatible = "pixart,pmw3610-alt";
         reg = <0>;
         spi-max-frequency = <2000000>;
+        irq-gpios = <&gpio1 7 (GPIO_ACTIVE_HIGH)>;      // 現行badjeffで必須。極性は現状維持
         cpi = <400>;
-        // 安定版verBに合わせ irq-gpios なし（ポーリング動作で割り込みストーム/洪水を回避）
+        // フリーズ対策の本体は CONFIG_PMW3610_ALT_REPORT_INTERVAL_MIN=30 によるレポート間引き
         // 軸はドライバ側で入替え、反転は trackball_listener の zip_xy_transform 側で処理
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_Y>;
