@@ -11,7 +11,8 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      # 再現性のためZMK本体もリビジョン固定（左右でビルド時期がずれると不整合→BLEチャーンの原因に）
+      revision: 64daf698e073e37b6748ac54f4eb48d8666af0b9
       import: app/west.yml
     - name: zmk-rgbled-widget
       remote: caksoylar
