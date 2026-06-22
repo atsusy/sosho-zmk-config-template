@@ -1,11 +1,13 @@
 #include "sosho_L.dtsi"
 
-&spi0 { status = "okay"; };
+/* 左トラックパッドを無効化して負荷を削減（elekit指示: spi0/glidepoint_split を disabled）
+   spi0 を切るため、同バスの glidepoint も整合のため disabled にする */
+&spi0 { status = "disabled"; };
 &glidepoint {
-    status = "okay";
+    status = "disabled";
     invert-x;
 };
 &glidepoint_split {
-    status = "okay";
+    status = "disabled";
     device = <&glidepoint>;
 };
