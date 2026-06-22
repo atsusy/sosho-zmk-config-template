@@ -11,7 +11,7 @@
 		input-processors = <
 			&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
 			&zip_x_scaler 0 1          /* 横成分を捨てて縦専用化 */
-			&zip_y_scaler 1 16         /* hi-res倍率(約200倍)を相殺するため強めに分周。速すぎ/遅すぎはここで調整 */
+			&zip_y_scaler 1 8          /* hi-res無し(素のホイール)。Keyball並みの数ノッチに調整。速すぎ/遅すぎはここで */
 			&zip_xy_to_scroll_mapper
 		>;
 	};
