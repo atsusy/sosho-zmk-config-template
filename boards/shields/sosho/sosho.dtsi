@@ -186,7 +186,7 @@
 
     trackball: trackball@0 {
         status = "disabled";
-        compatible = "pixart,pmw3610";   // roBaと同じkumamukドライバ
+        compatible = "pixart,pmw3610-kuma";   // fork版kumamukドライバ（Zephyr4.1衝突回避でリネーム）
         reg = <0>;
         spi-max-frequency = <2000000>;
         // kumamuk標準(roBa)はACTIVE_LOW|PULL_UP。もしトラックボールが全く無反応なら ACTIVE_HIGH に戻す

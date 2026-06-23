@@ -6,8 +6,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: caksoylar
       url-base: https://github.com/caksoylar
-    - name: kumamuk-git
-      url-base: https://github.com/kumamuk-git
+    - name: atsusy
+      url-base: https://github.com/atsusy
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -18,8 +18,9 @@ manifest:
       remote: caksoylar
       revision: main
     - name: zmk-pmw3610-driver
-      remote: kumamuk-git
-      # roBaと同じkumamuk版ドライバ（ドライバ内蔵の離散スクロール）。再現性のため固定
-      revision: 5e04553ab803d24405bd45621a41310ea3050e59
+      remote: atsusy
+      # kumamukドライバ(roBa方式の離散スクロール)を fork し、compatibleを pixart,pmw3610-kuma に
+      # リネームした版（Zephyr4.1のビルトインbinding衝突回避）。再現性のため固定
+      revision: db8dd77a33c2cdc5ce4c5e13451424410d23863b
   self:
     path: config
