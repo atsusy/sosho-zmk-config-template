@@ -3,18 +3,9 @@
 &spi1 { status = "okay"; };
 &trackball { status = "okay"; };
 &trackball_listener {
+	/* kumamukドライバが移動/スクロールを内部処理（scroll-layers）するため、リスナーは素。
+	   向き・反転・スクロール方向は conf 側(ORIENTATION_*, INVERT_*, INVERT_SCROLL_*)で調整する */
 	status = "okay";
-	input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
-
-	scroll {
-		layers = <1>;
-		input-processors = <
-			&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
-			&zip_x_scaler 0 1          /* 横成分を捨てて縦専用化 */
-			&zip_y_scaler 1 8          /* hi-res無し(素のホイール)。Keyball並みの数ノッチに調整。速すぎ/遅すぎはここで */
-			&zip_xy_to_scroll_mapper
-		>;
-	};
 };
 
 /* 負荷削減の検証のため左側ポインティング受信を有効化に戻した（フリーズ再発しないか確認用） */
