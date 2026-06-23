@@ -189,8 +189,9 @@
         compatible = "pixart,pmw3610-kuma";   // fork版kumamukドライバ（Zephyr4.1衝突回避でリネーム）
         reg = <0>;
         spi-max-frequency = <2000000>;
-        // kumamuk標準(roBa)はACTIVE_LOW|PULL_UP。もしトラックボールが全く無反応なら ACTIVE_HIGH に戻す
-        irq-gpios = <&gpio1 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        // sosho実機の motion ピンは ACTIVE_HIGH（badjeffでの実績値）。ドライバは GPIO_INT_LEVEL_ACTIVE
+        // でdtフラグを尊重するため、これで割り込みが張られる（ACTIVE_LOWでは全く動かなかった）
+        irq-gpios = <&gpio1 7 (GPIO_ACTIVE_HIGH)>;
         // Layer1でドライバが移動→離散スクロールに変換（CONFIG_PMW3610_SCROLL_TICK単位）
         scroll-layers = <1>;
     };
