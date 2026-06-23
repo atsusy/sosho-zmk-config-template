@@ -8,6 +8,8 @@ manifest:
       url-base: https://github.com/caksoylar
     - name: badjeff
       url-base: https://github.com/badjeff
+    - name: abababababababa
+      url-base: https://github.com/abababababababa
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -21,5 +23,11 @@ manifest:
       remote: badjeff
       # 再現性のためリビジョン固定（main追従は破壊的変更でビルドが壊れる）
       revision: 44b4a76b74d293a93cec4ccb7e04cb8d29c10f93
+    - name: zmk_encoder
+      remote: abababababababa
+      # elekitのエンコーダ用マウススクロールモジュール。現状は個人tempリポジトリ
+      # （来週ごろ会社アカウントへ移管予定→移ったらremote/revisionを更新）。再現性のためSHA固定
+      revision: ac00177391c40e78cb546f8912e7f5d48225c667
+      path: modules/zmk_encoder
   self:
     path: config

@@ -9,19 +9,15 @@
 
 / {
 	behaviors {
-		//エンコーダにスクロールを割り当てるためのビヘイビア
-		msc_ec_l: sensor_rotation_scroll_L {
-	        compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
-			tap-ms = <20>;
-        };
-		msc_ec_r: sensor_rotation_scroll_R {
-	        compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
-			tap-ms = <20>;
-        };
+		// エンコーダ用マウススクロール（elekit zmk_encoderモジュール）
+		ec_ms_l: ec_ms_h {
+			compatible = "zmk,behavior-encoder-mouse-scroll";
+			#sensor-binding-cells = <2>;
+		};
+		ec_ms_r: ec_ms_v {
+			compatible = "zmk,behavior-encoder-mouse-scroll";
+			#sensor-binding-cells = <2>;
+		};
 	};
 };
 
@@ -80,7 +76,7 @@ keymap {
     &trans     &trans         &lt 1 LANG2   &mt LGUI SPACE   &mt RALT RET  &lt 2 LANG1         &kp PSCRN &mo 3
             >;
             // トラックボール/パッドによるスクロールバインディング
-            sensor-bindings = <&msc_ec_l SCRL_LEFT SCRL_RIGHT &inc_dec_kp LC(MINUS) LC(EQUAL)>;
+            sensor-bindings = <&ec_ms_l SCRL_LEFT SCRL_RIGHT &ec_ms_r SCRL_DOWN SCRL_UP>;
         };
 
         // -----------------------------------------------------------------------------------------
@@ -93,7 +89,7 @@ keymap {
     &kp LSHFT  &kp F7  &kp F8  &kp F9  &kp F10 &kp F11     &kp F12  &kp LEFT  &kp DOWN &kp RIGHT &trans  &trans
     &trans     &trans                   &trans  &trans      &trans   &trans                        &trans  &trans
             >;
-            sensor-bindings = <&msc_ec_l SCRL_LEFT SCRL_RIGHT &inc_dec_kp LC(MINUS) LC(EQUAL)>;
+            sensor-bindings = <&ec_ms_l SCRL_LEFT SCRL_RIGHT &ec_ms_r SCRL_DOWN SCRL_UP>;
         };
 
         // -----------------------------------------------------------------------------------------
