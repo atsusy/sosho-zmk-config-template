@@ -21,6 +21,6 @@ manifest:
       remote: atsusy
       # kumamukドライバ(roBa方式の離散スクロール)を fork し、compatibleを pixart,pmw3610-kuma に
       # リネームした版（Zephyr4.1のビルトインbinding衝突回避）。再現性のため固定
-      revision: db8dd77a33c2cdc5ce4c5e13451424410d23863b
+      revision: 7296270faff75fede9999f5d25dc5a6c66d81cb9
   self:
     path: config
