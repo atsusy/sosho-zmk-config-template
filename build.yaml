@@ -25,10 +25,8 @@ include:
     shield: sosho_L_trackpad rgbled_adapter
     artifact-name: sosho_L_trackpad
 
-  # トラックボール版
-  - board: xiao_ble/nrf52840/zmk
-    shield: sosho_L_trackball rgbled_adapter
-    artifact-name: sosho_L_trackball
+  # トラックボール版(L)は kumamuk ドライバがセントラル専用関数を使うため
+  # ペリフェラルでリンク不可 → ビルドマトリクスから除外（当構成では未使用）
 
   # ==============================
   # 設定リセット用
