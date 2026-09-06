@@ -17,12 +17,16 @@
 	};
 };
 
-/* 負荷削減の検証のため左側ポインティング受信を有効化に戻した（フリーズ再発しないか確認用） */
+/* 左側ポインティングの受け口。
+ * 左手側にはトラックパッドもトラックボールも載っていないので、この4ノードは
+ * 何も受け取らないまま常駐しているだけだった（memo.md が「使わない方を disabled に
+ * すると動作が更に軽くなる」と書いているのがまさにここ）。
+ * 左にポインティングデバイスを載せたら、対応する側だけコメントを外すこと。
+ */
+/*
 &glidepoint_split { status = "okay"; };
-&glidepoint_split_listener {
-    status = "okay";
-/* input-processors = <&zip_xy_scaler 2 1>; */
-};
+&glidepoint_split_listener { status = "okay"; };
 
 &trackball_split { status = "okay"; };
 &trackball_split_listener { status = "okay"; };
+*/

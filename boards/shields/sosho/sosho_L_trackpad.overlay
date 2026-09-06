@@ -1,6 +1,13 @@
 #include "sosho_L.dtsi"
 
-/* 負荷削減の検証のため左トラックパッドを有効化に戻した（フリーズ再発しないか確認用） */
+/* この個体の左側にはトラックパッドが載っていない。
+ * 有効のままだと pinnacle_init() が Firmware ASIC ID チェックで失敗して終わるだけなので、
+ * SPI0ごと落として無駄な初期化と消費電力をなくす。
+ * トラックパッドを載せたら、以下のコメントを外して
+ * sosho_L_trackpad.conf の CONFIG_INPUT_PINNACLE=y も戻すこと。
+ * （中枢側 sosho_R_trackball.overlay の glidepoint_split_listener も同時に戻す）
+ */
+/*
 &spi0 { status = "okay"; };
 &glidepoint {
     status = "okay";
@@ -10,3 +17,4 @@
     status = "okay";
     device = <&glidepoint>;
 };
+*/

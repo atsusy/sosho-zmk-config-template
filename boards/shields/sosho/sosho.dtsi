@@ -47,7 +47,16 @@
         compatible = "alps,ec11";
         a-gpios = <&gpio0 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         b-gpios = <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        steps = <48>;
+        /* 実機は24ディテント x 4パルス = 96パルス/回転。
+         * 48 にすると ec11 が 1パルスあたりの角度を2倍に報告するため
+         * (ec11.c: val1 = pulses * 360 / steps)、triggers-per-rotation = 24
+         * と噛み合って 1ディテントあたり2トリガ = HID通知が2倍になる。
+         * さらに ec_ms_r は1トリガにつきマウスレポートを2回送るので、
+         * 物理1ノッチ = 通知4発 になっていた。upstream elekit と同じ 96 に戻す。
+         * ズームが1クリックで2段飛んでいたのも同じ原因。
+         * スクロール量を増やしたい場合はここではなく keymap 側で調整すること。 */
+        steps = <96>;
+        resolution = <4>;
         status = "disabled";
     };
 
@@ -55,7 +64,16 @@
         compatible = "alps,ec11";
         a-gpios = <&gpio0 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         b-gpios = <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        steps = <48>;
+        /* 実機は24ディテント x 4パルス = 96パルス/回転。
+         * 48 にすると ec11 が 1パルスあたりの角度を2倍に報告するため
+         * (ec11.c: val1 = pulses * 360 / steps)、triggers-per-rotation = 24
+         * と噛み合って 1ディテントあたり2トリガ = HID通知が2倍になる。
+         * さらに ec_ms_r は1トリガにつきマウスレポートを2回送るので、
+         * 物理1ノッチ = 通知4発 になっていた。upstream elekit と同じ 96 に戻す。
+         * ズームが1クリックで2段飛んでいたのも同じ原因。
+         * スクロール量を増やしたい場合はここではなく keymap 側で調整すること。 */
+        steps = <96>;
+        resolution = <4>;
         status = "disabled";
     };
 
